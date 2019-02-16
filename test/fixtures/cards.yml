@@ -3,7 +3,7 @@
 one:
   user: one
   manufacturer: 1
-  year: MyString
+  year: 1999
   player_first_name: MyString
   player_last_name: MyString
   series_number: MyString
@@ -11,7 +11,7 @@ one:
 two:
   user: two
   manufacturer: 1
-  year: MyString
+  year: 1998
   player_first_name: MyString
   player_last_name: MyString
   series_number: MyString

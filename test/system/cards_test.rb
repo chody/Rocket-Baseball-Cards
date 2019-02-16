@@ -16,11 +16,10 @@ class CardsTest < ApplicationSystemTestCase
     visit cards_url
     click_on "New Card"
 
-    fill_in "Manufacturer", with: @card.manufacturer
-    fill_in "Player first name", with: @card.player_first_name
-    fill_in "Player last name", with: @card.player_last_name
-    fill_in "Series number", with: @card.series_number
-    fill_in "User", with: @card.user_id
+    select('Topps', from: 'Manufacturer')
+    fill_in "Player First Name", with: @card.player_first_name
+    fill_in "Player Last Name", with: @card.player_last_name
+    fill_in "Series Number", with: @card.series_number
     fill_in "Year", with: @card.year
     click_on "Create Card"
 
@@ -32,11 +31,10 @@ class CardsTest < ApplicationSystemTestCase
     visit cards_url
     click_on "Edit", match: :first
 
-    fill_in "Manufacturer", with: @card.manufacturer
-    fill_in "Player first name", with: @card.player_first_name
-    fill_in "Player last name", with: @card.player_last_name
-    fill_in "Series number", with: @card.series_number
-    fill_in "User", with: @card.user_id
+    select('Topps', from: 'Manufacturer')
+    fill_in "Player First Name", with: @card.player_first_name
+    fill_in "Player Last Name", with: @card.player_last_name
+    fill_in "Series Number", with: @card.series_number
     fill_in "Year", with: @card.year
     click_on "Update Card"
 
