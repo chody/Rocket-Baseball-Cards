@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.select :state, us_states, { include_blank: '-- Select --' }, class: 'form-control', required: true %>
   </div>
 
   <div class="field">

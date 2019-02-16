@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= f.label :state %><br />
-    <%= f.text_field :state, autocomplete: "state" %>
+    <%= f.select :state, us_states, { include_blank: '-- Select --' }, class: 'form-control', required: true %>
   </div>
 
   <div class="field">

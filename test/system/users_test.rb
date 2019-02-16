@@ -21,7 +21,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "First name", with: @user.first_name
     fill_in "Last name", with: @user.last_name
     fill_in "Phone", with: @user.phone
-    fill_in "State", with: @user.state
+    select('Iowa', from: 'State')
     fill_in "Zip", with: @user.zip
     click_on "Update User"
 

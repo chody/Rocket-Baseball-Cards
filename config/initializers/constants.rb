@@ -1,0 +1,1 @@
+STATES = YAML.load_file(Rails.root.join('db', 'data', 'states.yml')).freeze
