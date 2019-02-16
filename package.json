@@ -1,5 +1,20 @@
 {
   "name": "rocket-fantasy-baseball",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "bootstrap": "4.3.1",
+    "caniuse-lite": "^1.0.30000938",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7",
+    "webpack": "^4.29.4"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/chody/Rocket-Baseball-Cards.git",
+  "author": "Cody Hill <cody.hill07@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
