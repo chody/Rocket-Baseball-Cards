@@ -1,0 +1,17 @@
+<!-- Just an image -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    Rocket Cards
+  </a>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to 'My Account', user_path(current_user), class: "nav-link #{'active' if current_page?(user_path(current_user))}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Cards', cards_path, class: "nav-link #{'active' if current_page?(cards_path)}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Users', users_path, class: "nav-link #{'active' if current_page?(users_path)}" %>
+  </li>
+</ul>
+</nav>
