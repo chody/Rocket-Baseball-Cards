@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  manufacturer: 1
+  year: MyString
+  player_first_name: MyString
+  player_last_name: MyString
+  series_number: MyString
+
+two:
+  user: two
+  manufacturer: 1
+  year: MyString
+  player_first_name: MyString
+  player_last_name: MyString
+  series_number: MyString

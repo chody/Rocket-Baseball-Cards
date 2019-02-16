@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @card.user %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @card.manufacturer %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @card.year %>
+</p>
+
+<p>
+  <strong>Player first name:</strong>
+  <%= @card.player_first_name %>
+</p>
+
+<p>
+  <strong>Player last name:</strong>
+  <%= @card.player_last_name %>
+</p>
+
+<p>
+  <strong>Series number:</strong>
+  <%= @card.series_number %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

@@ -4,9 +4,14 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+ActiveSupport::TestCase.class_eval do
   fixtures :all
+end
 
-  # Add more helper methods to be used by all tests here...
+ActionDispatch::IntegrationTest.class_eval do
+  include Devise::Test::IntegrationHelpers
+end
+
+Capybara.add_selector(:name) do
+  xpath { |name| XPath.descendant[XPath.attr(:name).contains(name)] }
 end
