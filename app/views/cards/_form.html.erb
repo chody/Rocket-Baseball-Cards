@@ -11,34 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class='form-row mb-4'>
+    <div class="field">
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
+
+    <div class="col col-lg-6">
+      <%= form.label :manufacturer %>
+      <%= form.select :manufacturer, Card.manufacturers.keys.map {|k| [k.humanize, k]}, { include_blank: '-- Select Manufacturer --' }, class: 'form-control' %>
+
+
+    </div>
+
+    <div class="col col-lg-6">
+      <%= form.label :year %>
+      <%= form.number_field :year, class: 'form-control', min: '1900', max: Date.today.year %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :manufacturer %>
-    <%= form.number_field :manufacturer %>
+  <div class='form-row mb-4'>
+    <div class="col col-lg-6">
+      <%= form.label :player_first_name, 'Player First Name' %>
+      <%= form.text_field :player_first_name, class: 'form-control' %>
+    </div>
+
+    <div class="col col-lg-6">
+      <%= form.label :player_last_name, 'Player Last Name' %>
+      <%= form.text_field :player_last_name, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player_first_name %>
-    <%= form.text_field :player_first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player_last_name %>
-    <%= form.text_field :player_last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :series_number %>
-    <%= form.text_field :series_number %>
+  <div class='form-row mb-4'>
+    <div class="col col-lg-12">
+      <%= form.label :series_number, 'Series Number' %>
+      <%= form.text_field :series_number, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">

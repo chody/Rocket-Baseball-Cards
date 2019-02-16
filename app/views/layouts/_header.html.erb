@@ -5,7 +5,7 @@
   </a>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <%= link_to 'My Account', user_path(current_user), class: "nav-link #{'active' if current_page?(user_path(current_user))}" %>
+    <%= link_to 'My Account', user_path(current_user), class: "nav-link #{'active' if current_page?(user_path(current_user)) || current_page?(edit_user_path(current_user))}" %>
   </li>
   <li class="nav-item">
     <%= link_to 'Cards', cards_path, class: "nav-link #{'active' if current_page?(cards_path)}" %>

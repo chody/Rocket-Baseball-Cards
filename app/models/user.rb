@@ -8,4 +8,8 @@ class User < ApplicationRecord
  	with_options dependent: :destroy do
  		has_many :cards
  	end	
+
+ 	def full_name
+ 		"#{first_name} #{last_name}"
+ 	end
 end
