@@ -13,7 +13,6 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks'
-gem 'webpacker'
 
 group :development, :test do
   gem 'awesome_print', require: 'ap'
