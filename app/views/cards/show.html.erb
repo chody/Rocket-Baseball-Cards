@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @card.user %>
+  <strong>Owner:</strong>
+  <%= @card.user.full_name %>
 </p>
 
 <p>
@@ -16,17 +16,12 @@
 </p>
 
 <p>
-  <strong>Player first name:</strong>
-  <%= @card.player_first_name %>
+  <strong>Player:</strong>
+  <%= @card.player_full_name %>
 </p>
 
 <p>
-  <strong>Player last name:</strong>
-  <%= @card.player_last_name %>
-</p>
-
-<p>
-  <strong>Series number:</strong>
+  <strong>Series Number:</strong>
   <%= @card.series_number %>
 </p>
 
