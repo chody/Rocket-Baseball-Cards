@@ -18,8 +18,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Address", with: @user.address
     fill_in "City", with: @user.city
     fill_in "Email", with: Faker::Internet.email
-    fill_in "First name", with: @user.first_name
-    fill_in "Last name", with: @user.last_name
+    fill_in "First Name", with: @user.first_name
+    fill_in "Last Name", with: @user.last_name
     fill_in "Phone", with: @user.phone
     select('Iowa', from: 'State')
     fill_in "Zip", with: @user.zip
