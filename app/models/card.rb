@@ -1,6 +1,7 @@
 class Card < ApplicationRecord
 
 	belongs_to :user
+	has_one_attached :image
 
   	enum manufacturer: { topps: 1, upper_deck: 2, panini: 3 }
 
