@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+#!/usr/bin/env ruby #------- added by carwow -------- require_relative '../config/ssl' #-------------------------------- begin load File.expand_path("../spring", __FILE__) rescue LoadError end APP_PATH = File.expand_path('../../config/application', __FILE__) require_relative '../config/boot' require 'rails/commands'
+
 #!/usr/bin/env ruby
+
+
 begin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e
