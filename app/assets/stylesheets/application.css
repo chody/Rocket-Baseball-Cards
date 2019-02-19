@@ -21,6 +21,14 @@ a:hover {
 	background-color: #ffffff !important;
 }
 
+a.btn-primary {
+  color: #ffffff !important;
+}
+
+a.btn-primary:hover {
+  color: #007bff !important;
+}
+
 .nav-tabs > li > a:hover{
   background-color: #303136 !important;
   /*border: medium none;*/

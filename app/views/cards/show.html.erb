@@ -11,6 +11,7 @@
           <th>Year</th>
           <th>Player</th>
           <th>Series Number</th>
+          <th>Find</th>
         </tr>
       </thead>  
       <tbody>
@@ -20,6 +21,7 @@
           <td><%= @card.year %></td>
           <td><%= @card.player_full_name %></td>
           <td><%= @card.series_number %></td>
+          <td><%= link_to 'Find', ebay_finder_path(@card), class: 'btn btn-primary' %>
         </tr> 
       </tbody>  
     </table>  
