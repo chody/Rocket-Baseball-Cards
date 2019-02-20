@@ -11,6 +11,9 @@ one:
   state: <%= Faker::Address.state %>
   zip: <%= Faker::Address.zip_code %> 
   phone: <%= Faker::PhoneNumber.phone_number %>
+  access_token: MyString
+  refresh_token: MyString
+  refresh_at: <%= Time.now + 2.hours %>
 
 two:
   <<: *DEFAULTS
@@ -22,3 +25,6 @@ two:
   state: <%= Faker::Address.state %>
   zip: <%= Faker::Address.zip_code %> 
   phone: <%= Faker::PhoneNumber.phone_number %>
+  access_token: MyString
+  refresh_token: MyString
+  refresh_at: <%= Time.now + 2.hours %>
