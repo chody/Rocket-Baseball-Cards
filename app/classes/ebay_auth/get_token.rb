@@ -2,13 +2,14 @@
 
 module EbayAuth
   class GetToken
-    attr_reader :code, :user
+    attr_reader :client, :code, :user
 
-    def self.run(code, user)
-      new(code, user).run
+    def self.run(client, code, user)
+      new(client, code, user).run
     end
 
-    def initialize(code, user)
+    def initialize(client, code, user)
+      @client = client
       @code = code
       @user = user
     end
@@ -18,24 +19,8 @@ module EbayAuth
     end
 
     def setup
-      oauth_credentials = "#{Rails.application.credentials.dig(:client_id)}:#{Rails.application.credentials.dig(:client_secret)}"
-      encoded_credentials = Base64.strict_encode64(oauth_credentials)
-      uri = URI.parse("https://api.sandbox.ebay.com/identity/v1/oauth2/token")
-      request = Net::HTTP::Post.new(uri)
-      request.content_type = "application/x-www-form-urlencoded"
-      request["Authorization"] = "Basic #{encoded_credentials}"
-      request.body = "grant_type=authorization_code&code=#{code}&redirect_uri=#{Rails.application.credentials.dig(:ru_name)}"
-
-      req_options = {
-        use_ssl: uri.scheme == "https",
-      }
-
-      response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-        http.request(request)
-      end
-
-      token = eval(response.body)
-      # refresh_time = DateTime.strptime(token[:expires_at].to_s, '%s')
+      oauth_credentials = Base64.strict_encode64("#{Rails.application.credentials.dig(:client_id)}:#{Rails.application.credentials.dig(:client_secret)}")
+      token = client.auth_code.get_token(code, redirect_uri: Rails.application.credentials.dig(:ru_name), headers: { 'Authorization' => "Basic #{oauth_credentials}" }).to_hash
       refresh_time = Time.now + 2.hours
       user.update_attributes(access_token: token[:access_token],
                                      refresh_token: token[:refresh_token],

@@ -1,0 +1,25 @@
+ <% @cards[:itemSummaries].each do |card| %>
+ 	<div class='row' style='margin-top: 20px;'>
+ 		<div class='col col-lg-10'>
+ 			<table class='table'>
+ 				<thead>
+ 					<th>Title</th>
+ 					<th>Condition</th>
+ 					<th>List Price</th>
+ 					<th>Current Bid</th>
+ 					<th>Buy Link</th>
+ 				</thead>
+ 				<tbody>
+ 					<td><%= card[:title] %></td>
+ 					<td><%= card[:condition] %></td>
+ 					<td><%= number_to_currency(card[:price][:value]) %></td>
+ 					<td><%= number_to_currency(card[:currentBidPrice][:value]) %></td>
+ 					<td><%= link_to 'Buy', card[:itemWebUrl], class: 'btn btn-primary', target: '_blank' %></td>
+ 				</tbody>	
+ 			</table>	
+ 		</div>	
+ 		<div class='col col-lg-2'>
+ 			<%= image_tag card[:image][:imageUrl] %>
+ 		</div>	
+ 	</div>		
+ <% end %>

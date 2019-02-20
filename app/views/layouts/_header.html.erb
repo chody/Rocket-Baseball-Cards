@@ -13,5 +13,8 @@
   <li class="nav-item">
     <%= link_to 'Users', users_path, class: "nav-link #{'active' if current_page?(users_path)}" %>
   </li>
+  <li class="nav-item">
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+  </li>  
 </ul>
 </nav>

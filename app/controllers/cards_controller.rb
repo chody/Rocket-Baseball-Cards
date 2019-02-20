@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, except: %i[index]
+  before_action :set_card, except: %i[index new create]
 
   # GET /cards
   def index
@@ -48,9 +48,8 @@ class CardsController < ApplicationController
   # finds a listing on ebay
   def find_on_ebay
     search_string = URI.escape("#{@card.manufacturer} #{@card.year} #{@card.player_full_name} #{@card.series_number}")
-    uri = URI.parse("https://api.sandbox.ebay.com/buy/browse/v1/item_summary/search?category_ids=213&q=#{search_string}&`limit=10")
+    uri = URI.parse("https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=213&q=#{search_string}&limit=25")
     request = Net::HTTP::Get.new(uri)
-    puts "REQUeST PATH #{request.path}"
     request["Authorization"] = "Bearer #{current_user.access_token}"
     req_options = {
       use_ssl: uri.scheme == "https",
@@ -59,12 +58,8 @@ class CardsController < ApplicationController
     response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
-
-    puts "RESPONSE"
-    puts response.body
-
-    # response.code
-    # response.body
+    
+    @cards = eval(response.body)
   end
 
   private

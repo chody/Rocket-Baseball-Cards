@@ -10,7 +10,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'mysql2'
 gem 'oauth2'
-# gem 'puma', '~> 3.11'
 gem 'puma', git: 'https://github.com/eric-norcross/puma.git', branch: 'chrome_70_ssl_curve_compatiblity'
 gem 'rails', '~> 5.2.2'
 gem 'sass-rails', '~> 5.0'
