@@ -16,7 +16,7 @@ port        ENV.fetch("PORT") { 3000 }
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
-ssl_bind '127.0.0.1', '3000', { key: "#{Rails.root}/localhost.key", cert: "#{Rails.root}/localhost.crt", verify_mode: 'none' }
+# ssl_bind '127.0.0.1', '3000', { key: "#{Rails.root}/localhost.key", cert: "#{Rails.root}/localhost.crt", verify_mode: 'none' }
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
