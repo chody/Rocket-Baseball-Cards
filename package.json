@@ -18,6 +18,6 @@
   "author": "Cody Hill <cody.hill07@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": ">= 3.1.11"
   }
 }
