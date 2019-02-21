@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<% flash.each do |key, value| %>
+  <%= content_tag :p, value, class: "flash #{key} alert alert-#{key == 'notice' ? 'success' : 'danger'}" %>
+<% end %>
 <h1>Cards</h1>
 
 <table class='table'>
@@ -23,7 +24,7 @@
         <td><%= card.player_full_name %></td>
         <td><%= card.series_number %></td>
         <td><%= link_to 'Show', card %></td>
-        <% if card.user == current_user %>
+        <% if policy(card).edit? %>
           <td><%= link_to 'Edit', edit_card_path(card) %></td>
           <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

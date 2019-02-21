@@ -1,11 +1,28 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit
 	protect_from_forgery with: :exception, prepend: true
 	before_action :authenticate_user!
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :ebay_auth
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  private
+
+  def user_not_authorized(exception)
+    policy = exception.policy.class.to_s
+    action = exception.query
+    flash[:error] = "You do not have permission to perform this action"
+    redirect_to unauthorized_path
+  end
+
+  def unauthorized_path
+    root_path
+  end  
+
 
   	protected
 

@@ -3,7 +3,7 @@ class CardsController < ApplicationController
 
   # GET /cards
   def index
-    @cards = Card.all
+    authorize @cards = Card.all
   end
 
   # GET /cards/1
@@ -65,7 +65,7 @@ class CardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_card
-      @card = Card.find(params[:id])
+      authorize @card = Card.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
